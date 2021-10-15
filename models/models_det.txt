@@ -1,0 +1,11 @@
+emart
+user details
+    name
+    password (bcrypted)
+    userId (unique)
+    age
+    gender
+    login time [array of login date]
+    analytics data --> time user take to see one product page, home page, deals on page and else more
+    mail (verified)
+    session Id store
