@@ -5,7 +5,48 @@ user details
     userId (unique)
     age
     gender
-    login time [array of login date]
-    analytics data --> time user take to see one product page, home page, deals on page and else more
-    mail (verified)
     session Id store
+    login time [array of login date]
+    #analytics data --> time user take to see one product page, home page, deals, search keywords and results on page and else more
+    #mail (verified)
+    #friends and connections - [array of other userId]
+    orders - [order Id's]
+    contact details
+    address
+    account log - [array of (accnt status and date)] --> accnt status [different status]
+    old_passwd - [array of hashes]
+
+
+
+
+Inventory
+ -Categories
+    -sub categories
+        {   
+            product_Id-
+            category_name - 
+            sub_category_name - 
+            subcategory_parameters-{
+                para1 -{value: , 
+                unit symbol:
+                }
+            }
+        }
+ -Unit Symbol - {
+    10 km == 10000m
+ }
+ -sales
+ -coupons
+ -products
+product details
+    <let's divide product on basis of categories >
+        <each product contain some basic details such as tax_details general_details and
+        then contains --> category specific details which are different for each product>
+        
+
+
+how to create product model in mongoose?
+~product general details stored
+~product category object in different model with same product Id
+
+    
