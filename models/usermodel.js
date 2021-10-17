@@ -1,5 +1,16 @@
 let mongoose = require("mongoose")
 let bcrypt = require("bcrypt")
+let { v4: uuidV4 } = require("uuid")
+
+
+let addressSchema = new mongoose.Schema({
+    stAdd: { type: String },
+    landmark: { type: String },
+    city: { type: String },
+    country: { type: String },
+    pincode: { type: Number }
+
+})
 
 let userSchema = new mongoose.Schema({
     name: {
@@ -21,18 +32,14 @@ let userSchema = new mongoose.Schema({
 
     },
     sessionId: [{ type: String }],
-    address: [{
-        stAdd: { type: String },
-        landmark: { type: String },
-        city: { type: String },
-        country: { type: String },
-        pincode: { type: Number }
-    }]
+    address: [addressSchema]
 })
 
-
-userSchema.pre(["create", "save"], async function (next) {
-    let hash = await bcrypt.hashSync(psswd, 5)
-    psswd = hash
-    next()
+userSchema.post(["create", "save"], async function (next) {
+    this.psswd = await bcrypt.hashSync(this.psswd, 5)
+    this.userId = uuidV4()
 })
+
+let userModel = mongoose.model("user", userSchema)
+
+module.exports = { model: userModel, schema: userSchema }
