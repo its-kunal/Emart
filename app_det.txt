@@ -1,0 +1,26 @@
+models - {
+    basic units - {
+        compounding Schema
+        
+    }
+    userModel -{
+        basics Done
+    }
+    Inventory model - {
+        Gen_Detail Schema
+        categorySchema - 
+        SubCategory Schema - 
+        Variants - {attributes}
+        tax_details Schema
+        reviewsSchema
+        
+    }
+    Orders Model
+    Sales Model (deals of the day)
+    
+}
+session
+Flash
+Joi
+Authenticate
+Authorise

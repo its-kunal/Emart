@@ -1,16 +1,8 @@
 let mongoose = require("mongoose")
 let bcrypt = require("bcrypt")
 let { v4: uuidV4 } = require("uuid")
+let addressSchema = require("./addressSchema")
 
-
-let addressSchema = new mongoose.Schema({
-    stAdd: { type: String },
-    landmark: { type: String },
-    city: { type: String },
-    country: { type: String },
-    pincode: { type: Number }
-
-})
 
 let userSchema = new mongoose.Schema({
     name: {
